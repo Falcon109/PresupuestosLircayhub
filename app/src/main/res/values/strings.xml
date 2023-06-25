@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Presupuestos  Lircayhub</string>
+
+    <string name="developer">Creado por Ariel Fuentes OwO</string>
+
+    <string name="Gastos">Gastos: </string>
+
+    <string name="Cat_Arriendo">Arriendo o Hipoteca</string>
+    <string name="Cat_Alimentacion">Alimentación</string>
+    <string name="Cat_Transporte">Transporte</string>
+    <string name="Cat_Servicios">Servicios básicos</string>
+    <string name="Cat_Educacion">Educación</string>
+    <string name="Cat_Deudas">Deudas</string>
+    <string name="Cat_Ahorros">Ahorros e Inversiones</string>
+
+    <string name="Boton_de_mas_gastos">Crear Gasto</string>
+
+    <string name="Nombre_Gastos">Nombre</string>
+    <string name="Monto">Monto: </string>
+    <string name="Num_Monto">---.---.---</string>
+    <string name="Fecha_Gastos">Fecha: </string>
+    <string name="Num_Fecha">##/##/##</string>
+    <string name="Latitud">Latitud: </string>
+    <string name="Num_Latitud">##-##-##</string>
+    <string name="Longitud">Longitud: </string>
+    <string name="Num_Longitud">##-##-##-##</string>
+    <string name="Categoria">Categoria: </string>
+    <string name="Nom_Categoria">Otros</string>
+
+    <string name="Guargar">Guardar</string>
+    <string name="Cancelar">Cancelar</string>
+
+    <string name="messages_header">Hello</string>
+    <string name="title_activity_settings">hola</string>
+    <string name="signature_title">JustMonika</string>
+    <string name="reply_title">OwO</string>
+    <string name="sync_header">TeamTohka</string>
+    <string name="sync_title">JustYuri</string>
+    <string name="attachment_summary_off">UwU</string>
+    <string name="attachment_summary_on">OwO</string>
+    <string name="attachment_title">TwT</string>
+
+    <string-array name="LisCategorias">
+        <item>Arriendo o Hipoteca</item>
+        <item>Alimentación</item>
+        <item>Transporte</item>
+        <item>Servicios básicos</item>
+        <item>Educación</item>
+        <item>Deudas</item>
+        <item>Ahorros e Inversiones</item>
+        <item>Otros</item>
+    </string-array>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+</resources>
