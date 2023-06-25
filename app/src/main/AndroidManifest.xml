@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_iconapp"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.PresupuestosLircayhub"
@@ -22,10 +22,10 @@
             android:name=".Item_Gastos"
             android:exported="false" />
         <activity
-            android:name=".Menu"
+            android:name=".Apartado_Gastos"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Inicio"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
