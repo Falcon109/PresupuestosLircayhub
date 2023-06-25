@@ -32,7 +32,7 @@ public class Inicio extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(Inicio.this, Apartado_Gastos.class);
+                Intent intent = new Intent(Inicio.this, Menu.class);
                 startActivity(intent);
                 finish();
             }
