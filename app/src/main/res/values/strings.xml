@@ -4,9 +4,10 @@
     <string name="developer">Creado por Ariel Fuentes</string>
 
     <string name="Menu1">Ajustes</string>
-    <string name="Menu2">Mapa</string>
-    <string name="Menu3">Analisis</string>
-    <string name="Menu4">Gastos</string>
+    <string name="Menu2">Inicio</string>
+    <string name="Menu3">Mapa</string>
+    <string name="Menu4">Analisis</string>
+    <string name="Menu5">Gastos</string>
 
     <string name="Gastos">Gastos: </string>
 

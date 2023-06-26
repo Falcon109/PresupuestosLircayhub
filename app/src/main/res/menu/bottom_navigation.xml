@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/MenuAjustes"
-        android:icon="@drawable/apart_configuracion"
-        android:title="@string/Menu1"/>
+        android:id="@+id/MenuInicio"
+        android:icon="@drawable/apart_inicio"
+        android:title="@string/Menu2"/>
     <item
         android:id="@+id/MenuMapa"
         android:icon="@drawable/apart_mapa"
-        android:title="@string/Menu2"/>
+        android:title="@string/Menu3"/>
     <item
         android:id="@+id/MenuAnalisis"
         android:icon="@drawable/apart_informacion"
-        android:title="@string/Menu3"/>
+        android:title="@string/Menu4"/>
     <item
         android:id="@+id/MenuGastos"
         android:icon="@drawable/apart_gastos"
-        android:title="@string/Menu4"/>
+        android:title="@string/Menu5"/>
 
 
 </menu>
