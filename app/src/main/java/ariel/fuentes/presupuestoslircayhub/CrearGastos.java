@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -15,6 +16,7 @@ import android.Manifest;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -24,14 +26,17 @@ import java.util.List;
 
 public class CrearGastos extends AppCompatActivity {
 
-    private TextView Latitud;
-    private TextView Longitud;
+    private TextView Latitud, Longitud, Fecha;
+    private Button btnFecha;
     private Spinner spicategorias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_gastos);
+
+        //Parte donde se implementara la extraccion de fecha
+        Fecha=findViewById(R.id.numerofecha);
 
         Latitud = (TextView)findViewById(R.id.latitudeTextView);
         Longitud = (TextView)findViewById(R.id.longitudeTextView);
@@ -72,23 +77,6 @@ public class CrearGastos extends AppCompatActivity {
         ArrayAdapter<String> adaptspinner = new ArrayAdapter<>(this, R.layout.item_spiner , getResources().getStringArray(R.array.LisCategorias));
         spicategorias.setAdapter(adaptspinner);
 
-        Spinner spinnerDia = findViewById(R.id.spinnerDia);
-        ArrayAdapter<String> adapterDia = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, obtenerDias());
-        adapterDia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDia.setAdapter(adapterDia);
-
-        // Configurar el spinner de mes
-        Spinner spinnerMes = findViewById(R.id.spinnerMes);
-        ArrayAdapter<CharSequence> adapterMes = ArrayAdapter.createFromResource(this, R.array.meses, android.R.layout.simple_spinner_item);
-        adapterMes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerMes.setAdapter(adapterMes);
-
-        // Configurar el spinner de año
-        Spinner spinnerAnio = findViewById(R.id.spinnerAño);
-        ArrayAdapter<CharSequence> adapterAnio = ArrayAdapter.createFromResource(this, R.array.años, android.R.layout.simple_spinner_item);
-        adapterAnio.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerAnio.setAdapter(adapterAnio);
-
         Button cancelarButton = findViewById(R.id.cancelar);
         cancelarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +97,17 @@ public class CrearGastos extends AppCompatActivity {
                 // Manejar caso de no selección, si es necesario
             }
         });
+    }
+
+    //metodo para la extraccion de fecha
+    public void mostrarcalendario(View view){
+        DatePickerDialog date = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                Fecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+            }
+        },2023,0,1);
+        date.show();
     }
 
     private List<String> obtenerDias() {

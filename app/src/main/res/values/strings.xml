@@ -65,34 +65,6 @@
         <item>Otros</item>
     </string-array>
 
-    <string-array name="meses">
-        <item>Enero</item>
-        <item>Febrero</item>
-        <item>Marzo</item>
-        <item>Abril</item>
-        <item>Mayo</item>
-        <item>Junio</item>
-        <item>Julio</item>
-        <item>Agosto</item>
-        <item>Septiembre</item>
-        <item>Octubre</item>
-        <item>Noviembre</item>
-        <item>Diciembre</item>
-    </string-array>
-
-    <string-array name="años">
-        <item>2021</item>
-        <item>2022</item>
-        <item>2023</item>
-        <item>2024</item>
-        <item>2025</item>
-        <item>2026</item>
-    </string-array>
-
-    <string name="default_day">Día</string>
-    <string name="default_month">Mes</string>
-    <string name="default_year">Año</string>
-
 
     <string name="title_activity_menu">Menu</string>
     <string name="title_home">Home</string>
