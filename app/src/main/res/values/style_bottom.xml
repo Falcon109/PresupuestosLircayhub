@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Corte_bordes_BTN">
-        <item name="cornerSizeBottomLeft">70%</item>
+        <item name="cornerSizeBottomLeft">65%</item>
         <item name="cornerSizeTopRight">0dp</item>
         <item name="cornerFamilyBottomLeft">cut</item>
         <item name="cornerFamilyTopRight">cut</item>

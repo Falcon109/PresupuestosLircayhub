@@ -5,20 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.GastosFragment;
-import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.AnalisisFragment;
+import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.IndicadoresFragment;
 import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.InicioFragment;
 import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.MapaFragment;
 
 public class Menu extends AppCompatActivity {
     InicioFragment MenuInicio = new InicioFragment();
     MapaFragment MenuMapa = new MapaFragment();
-    AnalisisFragment MenuAnalisis = new AnalisisFragment();
+    IndicadoresFragment MenuAnalisis = new IndicadoresFragment();
     GastosFragment MenuGastos = new GastosFragment();
 
     @Override
@@ -30,6 +33,15 @@ public class Menu extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         loadFragment(MenuInicio);
+
+        FloatingActionButton floatingActionButton = findViewById(R.id.configuraciones);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {

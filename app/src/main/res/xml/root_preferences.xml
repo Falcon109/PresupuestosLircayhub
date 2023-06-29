@@ -1,35 +1,58 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/messages_header">
+    <PreferenceCategory app:title="@string/PresupuestoTotal">
 
         <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
+            app:key="presupuestoall"
+            app:title="@string/SuPresupuesto"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
+    <PreferenceCategory android:title="@string/PresupuestoCategoria">
 
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+        <EditTextPreference
+            android:key="PresuArriedo"
+            android:title="@string/PresupuestoAriendo"
+            app:useSimpleSummaryProvider="true"/>
 
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+        <EditTextPreference
+            android:key="PresuAlimentacion"
+            android:title="@string/PresupuestoAlimentacion"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:key="PresuTransporte"
+            android:title="@string/PresupuestoTransporte"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:key="PresuServBasicos"
+            android:title="@string/PresupuestoServiciosBasicos"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:key="PresuEducacion"
+            android:title="@string/PresupuestoEducacion"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:key="PresuDeudas"
+            android:title="@string/PresupuestoDeudas"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:key="PresuAhorro"
+            android:title="@string/PresupuestoAhorro"
+            app:useSimpleSummaryProvider="true"/>
+
+        <EditTextPreference
+            android:key="PresuOtros"
+            android:title="@string/PresupuestoOtros"
+            app:useSimpleSummaryProvider="true"/>
 
     </PreferenceCategory>
+
 
 </PreferenceScreen>

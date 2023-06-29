@@ -6,8 +6,12 @@
     <string name="Menu1">Ajustes</string>
     <string name="Menu2">Inicio</string>
     <string name="Menu3">Mapa</string>
-    <string name="Menu4">Analisis</string>
+    <string name="Menu4">Indicadores</string>
     <string name="Menu5">Gastos</string>
+
+    <string name="Indicador1">UF</string>
+    <string name="Indicador2">Dolar</string>
+    <string name="Indicador3">Feriado</string>
 
     <string name="Gastos">Gastos: </string>
 
@@ -36,15 +40,19 @@
     <string name="Guargar">Guardar</string>
     <string name="Cancelar">Cancelar</string>
 
-    <string name="messages_header">Hello</string>
-    <string name="title_activity_settings">hola</string>
-    <string name="signature_title">JustMonika</string>
-    <string name="reply_title">OwO</string>
-    <string name="sync_header">TeamTohka</string>
-    <string name="sync_title">JustYuri</string>
-    <string name="attachment_summary_off">UwU</string>
-    <string name="attachment_summary_on">OwO</string>
-    <string name="attachment_title">TwT</string>
+    <string name="title_activity_settings">Configuración</string>
+    <string name="PresupuestoTotal">Presupuesto Total</string>
+    <string name="SuPresupuesto">Su presupuesto es:</string>
+
+    <string name="PresupuestoCategoria">Presupuesto por categoria</string>
+    <string name="PresupuestoAriendo">Presupuesto para arriendo:</string>
+    <string name="PresupuestoAlimentacion">Presupuesto para alimentación:</string>
+    <string name="PresupuestoTransporte">Presupuesto para transporte:</string>
+    <string name="PresupuestoServiciosBasicos">Presupuesto para servicios básicos:</string>
+    <string name="PresupuestoEducacion">Presupuesto para educación:</string>
+    <string name="PresupuestoDeudas">Presupuesto para deudas:</string>
+    <string name="PresupuestoAhorro">Presupuesto para ahorro:</string>
+    <string name="PresupuestoOtros">Presupuesto para otros:</string>
 
     <string-array name="LisCategorias">
         <item>Arriendo o Hipoteca</item>
