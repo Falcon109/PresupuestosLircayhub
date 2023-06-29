@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cat_otros" />
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/relativeLayout"
         android:layout_width="0dp"
         android:layout_height="301dp"
@@ -49,57 +49,64 @@
             android:id="@+id/Enunciados"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginEnd="16dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/Monto"
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="11dp"
                 android:text="@string/Monto"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Fecha"
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="11dp"
                 android:text="@string/Fecha_Gastos"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Latitud"
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="11dp"
                 android:text="@string/Latitud"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Longitud"
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="11dp"
                 android:text="@string/Longitud"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Categoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="11dp"
                 android:text="@string/Categoria"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/editables"
-            android:layout_width="227dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="-6dp"
-            android:layout_toEndOf="@+id/Enunciados"
             android:orientation="vertical">
 
             <EditText
@@ -110,26 +117,52 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/numeroFecha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/Num_Fecha"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <LinearLayout
 
-            <EditText
-                android:id="@+id/numlatitud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinnerDia"
+                    android:layout_width="84dp"
+                    android:layout_height="match_parent"
+                    android:prompt="@string/default_day" />
+
+                <Spinner
+                    android:id="@+id/spinnerMes"
+                    android:layout_width="98dp"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/default_month" />
+
+                <Spinner
+                    android:id="@+id/spinnerAño"
+                    android:layout_width="115dp"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/default_year" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/latitudeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="11dp"
+                android:contentDescription="latitud"
                 android:hint="@string/Num_Latitud"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/numlongitud"
+            <TextView
+                android:id="@+id/longitudeTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="11dp"
+                android:contentDescription="longitud"
                 android:hint="@string/Num_Longitud"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -137,11 +170,12 @@
             <Spinner
                 android:id="@+id/spicategorias"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
 
         </LinearLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"

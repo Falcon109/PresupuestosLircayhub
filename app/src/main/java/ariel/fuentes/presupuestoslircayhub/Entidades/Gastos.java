@@ -4,14 +4,16 @@ import java.util.Date;
 
 public class Gastos {
 
+    int id;
     String Nombre;
     int Valor;
-    Date Fecha;
+    String Fecha;
     String Latitud;
     String Longitud;
     String Categoria;
 
-    public Gastos(String nombre, int valor, Date fecha, String latitud, String longitud, String categoria) {
+    public Gastos(int Id, String nombre, int valor, String fecha, String latitud, String longitud, String categoria) {
+        id = Id;
         Nombre = nombre;
         Valor = valor;
         Fecha = fecha;
@@ -19,6 +21,14 @@ public class Gastos {
         Longitud = longitud;
         Categoria = categoria;
     }
+
+    public Gastos() {
+
+    }
+
+    public int getId() {return id;}
+
+    public void setId(int id) {this.id = id;}
 
     public String getNombre() {
         return Nombre;
@@ -36,11 +46,11 @@ public class Gastos {
         Valor = valor;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return Fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         Fecha = fecha;
     }
 
