@@ -79,7 +79,7 @@ public class DBGastos extends DBHelper {
             gastos = new Gastos();
             gastos.setId(cursorgastos.getInt(0));
             gastos.setNombre(cursorgastos.getString(1));
-            gastos.setValor(Integer.parseInt(cursorgastos.getString(2)));
+            gastos.setMonto(Integer.parseInt(cursorgastos.getString(2)));
             gastos.setFecha( cursorgastos.getString(3));
             gastos.setLatitud( cursorgastos.getString(4));
             gastos.setLongitud( cursorgastos.getString(5));

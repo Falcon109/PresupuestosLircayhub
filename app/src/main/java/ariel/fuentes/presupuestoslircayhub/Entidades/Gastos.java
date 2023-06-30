@@ -38,11 +38,11 @@ public class Gastos {
         Nombre = nombre;
     }
 
-    public int getValor() {
+    public int getMonto() {
         return Monto;
     }
 
-    public void setValor(int monto) {
+    public void setMonto(int monto) {
         Monto = monto;
     }
 

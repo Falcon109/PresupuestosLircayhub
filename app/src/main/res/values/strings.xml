@@ -37,6 +37,10 @@
     <string name="Categoria">Categoria: </string>
     <string name="Nom_Categoria">Otros</string>
 
+    <string name="btnEditar">Editar</string>
+    <string name="btnEliminar">Eliminar</string>
+    <string name="btnGuardar">Guardar</string>
+
     <string name="Guargar">Guardar</string>
     <string name="Cancelar">Cancelar</string>
 
