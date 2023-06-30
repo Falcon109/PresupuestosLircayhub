@@ -7,7 +7,7 @@
     tools:context=".CrearGastos">
 
     <EditText
-        android:id="@+id/nombreproducto"
+        android:id="@+id/nombregastos"
         android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginStart="10dp"
@@ -19,11 +19,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imagendeproducto"
+        app:layout_constraintStart_toEndOf="@+id/imagengastos"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imagendeproducto"
+        android:id="@+id/imagengastos"
         android:layout_width="69dp"
         android:layout_height="68dp"
         android:layout_marginStart="24dp"
@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreproducto">
+        app:layout_constraintTop_toBottomOf="@+id/nombregastos">
 
         <LinearLayout
             android:id="@+id/Enunciados"
@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
-                android:layout_marginBottom="11dp"
+                android:layout_marginBottom="17dp"
                 android:text="@string/Monto"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -66,8 +66,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
-                android:layout_marginBottom="11dp"
+                android:layout_marginBottom="20dp"
                 android:text="@string/Fecha_Gastos"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Categoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/Categoria"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -88,16 +98,6 @@
                 android:layout_marginTop="11dp"
                 android:layout_marginBottom="11dp"
                 android:text="@string/Longitud"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/Categoria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:layout_marginBottom="11dp"
-                android:text="@string/Categoria"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -122,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -146,16 +146,12 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/latitudeTextView"
+            <Spinner
+                android:id="@+id/spicategorias"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:layout_marginBottom="11dp"
-                android:contentDescription="latitud"
-                android:hint="@string/Num_Latitud"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:id="@+id/longitudeTextView"
@@ -169,11 +165,16 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/spicategorias"
+            <TextView
+                android:id="@+id/latitudeTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="11dp"
+                android:contentDescription="latitud"
+                android:hint="@string/Num_Latitud"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

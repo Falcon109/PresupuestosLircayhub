@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ import java.util.List;
 public class CrearGastos extends AppCompatActivity {
 
     private TextView Latitud, Longitud, Fecha;
+    private EditText Nombre, Monto;
     private Button btnFecha;
     private Spinner spicategorias;
 
@@ -37,7 +39,8 @@ public class CrearGastos extends AppCompatActivity {
 
         //Parte donde se implementara la extraccion de fecha
         Fecha=findViewById(R.id.numerofecha);
-
+        Nombre=findViewById(R.id.nombregastos);
+        Monto=findViewById(R.id.numeromonto);
         Latitud = (TextView)findViewById(R.id.latitudeTextView);
         Longitud = (TextView)findViewById(R.id.longitudeTextView);
 
@@ -119,7 +122,7 @@ public class CrearGastos extends AppCompatActivity {
     }
 
     private void actualizarImagenCategoria(String categoria) {
-        ImageView imageView = findViewById(R.id.imagendeproducto);
+        ImageView imageView = findViewById(R.id.imagengastos);
 
         switch (categoria) {
             case "Arriendo o Hipoteca":

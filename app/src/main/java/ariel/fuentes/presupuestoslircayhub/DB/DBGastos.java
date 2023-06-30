@@ -121,7 +121,7 @@ public class DBGastos extends DBHelper {
         DBHelper dbhelper = new DBHelper(context);
         this.db = dbhelper.getWritableDatabase();
         try {
-        db.execSQL("UPDATE " + TABLE_GASTOS + " SET nombregasto = '" + nombregasto+ "', valor ='" + valor + "', fechagastos ='" + fechagastos + "', latitud ='" + latitud +"', longitud ='" + longitud + "', categoria ='" + categoria + "' WHERE id= '" + ID + "'");
+            db.execSQL("UPDATE " + TABLE_GASTOS + " SET nombregasto = '" + nombregasto+ "', valor ='" + valor + "', fechagastos ='" + fechagastos + "', latitud ='" + latitud +"', longitud ='" + longitud + "', categoria ='" + categoria + "' WHERE id= '" + ID + "'");
             ready = true;
         } catch (Exception ex) {
             ex.toString();
