@@ -21,15 +21,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ariel.fuentes.presupuestoslircayhub.DB.DBGastos;
 
 public class CrearGastos extends AppCompatActivity {
 
     private TextView Latitud, Longitud, Fecha;
     private EditText Nombre, Monto;
-    private Button btnFecha;
+    private Button btnFecha, btnGuardar;
     private Spinner spicategorias;
 
     @Override
@@ -43,6 +46,7 @@ public class CrearGastos extends AppCompatActivity {
         Monto=findViewById(R.id.numeromonto);
         Latitud = (TextView)findViewById(R.id.latitudeTextView);
         Longitud = (TextView)findViewById(R.id.longitudeTextView);
+        btnGuardar=findViewById(R.id.btnGuardar);
 
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
 
@@ -100,6 +104,37 @@ public class CrearGastos extends AppCompatActivity {
                 // Manejar caso de no selección, si es necesario
             }
         });
+
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String nombreGasto = Nombre.getText().toString();
+                String fechaGasto = Fecha.getText().toString();
+                int monto = Integer.valueOf(Monto.getText().toString());
+                String latitud = Latitud.getText().toString();
+                String longitud = Longitud.getText().toString();
+                String categoria = spicategorias.getSelectedItem().toString();
+
+                DBGastos dbGastos = new DBGastos(getApplicationContext());
+                boolean checkInsertGasto = dbGastos.inserGastos(nombreGasto, monto, fechaGasto, latitud, longitud, categoria);
+                if (checkInsertGasto) {
+                    Toast.makeText(CrearGastos.this, "Gasto guardado", Toast.LENGTH_LONG).show();
+                    limpiar();
+                } else {
+                    Toast.makeText(CrearGastos.this, "Error al guardar el gasto", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+    }
+
+    private void limpiar(){
+        Nombre.setText("");
+        Monto.setText("");
+        Latitud.setText("");
+        Longitud.setText("");
+        Fecha.setText("");
     }
 
     //metodo para la extraccion de fecha
@@ -160,5 +195,4 @@ public class CrearGastos extends AppCompatActivity {
         super.onBackPressed();
         // Agrega cualquier otra lógica que necesites al regresar al fragmento de Gastos
     }
-
 }

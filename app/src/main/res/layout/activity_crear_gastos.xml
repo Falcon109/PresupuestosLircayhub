@@ -193,7 +193,7 @@
         app:layout_constraintVertical_bias="0.054">
 
         <Button
-            android:id="@+id/btnEditar"
+            android:id="@+id/btnGuardar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="10dp"

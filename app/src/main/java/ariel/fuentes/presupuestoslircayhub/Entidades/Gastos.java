@@ -6,16 +6,16 @@ public class Gastos {
 
     int id;
     String Nombre;
-    int Valor;
+    int Monto;
     String Fecha;
     String Latitud;
     String Longitud;
     String Categoria;
 
-    public Gastos(int Id, String nombre, int valor, String fecha, String latitud, String longitud, String categoria) {
+    public Gastos(int Id, String nombre, int monto, String fecha, String latitud, String longitud, String categoria) {
         id = Id;
         Nombre = nombre;
-        Valor = valor;
+        Monto = monto;
         Fecha = fecha;
         Latitud = latitud;
         Longitud = longitud;
@@ -39,11 +39,11 @@ public class Gastos {
     }
 
     public int getValor() {
-        return Valor;
+        return Monto;
     }
 
-    public void setValor(int valor) {
-        Valor = valor;
+    public void setValor(int monto) {
+        Monto = monto;
     }
 
     public String getFecha() {

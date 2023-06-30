@@ -155,7 +155,6 @@ public class IndicadoresFragment extends Fragment implements View.OnClickListene
                             try {
                                 JSONObject object = new JSONObject(response.get(f).toString());
                                 text.append("Nombre: " + object.getString("nombre") + "\n");
-                                text.append("Comentarios: " + object.getString("comentarios") + "\n");
                                 text.append("Fecha: " + object.getString("fecha") + "\n");
                                 text.append("Irrenunciable: " + object.getString("irrenunciable") + "\n");
                                 text.append("Tipo: " + object.getString("tipo") + "\n");

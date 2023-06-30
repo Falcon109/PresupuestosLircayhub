@@ -22,56 +22,48 @@ public class DBGastos extends DBHelper {
         super(context);
         this.context = context;
     }
-    public Boolean inserGastos(String nombregasto, Integer valor, String fechagastos, Integer latitud,  String longitud, String categoria){
+    public boolean inserGastos(String nombreGasto, int monto, String fechaGasto, String latitud, String longitud, String categoria) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        DBHelper dbhelper = new DBHelper(context);
-        this.db = dbhelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nombregasto", nombreGasto);
+        contentValues.put("monto", monto);
+        contentValues.put("fechagastos", fechaGasto);
+        contentValues.put("latitud", latitud);
+        contentValues.put("longitud", longitud);
+        contentValues.put("categoria", categoria);
 
-        ContentValues contentValue = new ContentValues();
-        contentValue.put("nombregasto", nombregasto);
-        contentValue.put("valor", valor);
-        contentValue.put("fechagastos", fechagastos);
-        contentValue.put("latitud", latitud);
-        contentValue.put("longitud", longitud);
-        contentValue.put("categoria", categoria);
-        long result = db.insert(TABLE_GASTOS,null,contentValue);
-        if (result == -1) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        long result = db.insert(TABLE_GASTOS, null, contentValues);
+        db.close();
+
+        return result != -1;
     }
 
-    @SuppressLint("Recycle")
     public ArrayList<Gastos> mostrardatos() {
+        SQLiteDatabase db = this.getReadableDatabase();
 
-        DBHelper dbhelper = new DBHelper(context);
-        this.db = dbhelper.getWritableDatabase();
-
-        ArrayList<Gastos> Listproductos = new ArrayList<>();
-        Gastos gastos = new Gastos();
-        Cursor cursorproduct;
-
+        ArrayList<Gastos> listaGastos = new ArrayList<>();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_GASTOS, null);
-        while (cursor.moveToNext()) { // Recorrer los resultados de la consulta
-            int id = cursor.getInt(0);
-            String nombgasto = cursor.getString(1);
-            int valorgast = Integer.parseInt(cursor.getString(2));
-            String fechgast = cursor.getString(3);
-            String latit = cursor.getString(4);
-            String longt = cursor.getString(6);
-            String categ = cursor.getString(5);
 
-            gastos = new Gastos(id,nombgasto,valorgast,fechgast,latit,longt,categ); // Crear un objeto Producto
-            Listproductos.add(gastos); // Agregar el objeto a la lista de productos
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String nombreGasto = cursor.getString(1);
+            int monto = cursor.getInt(2);
+            String fechaGasto = cursor.getString(3);
+            String latitud = cursor.getString(4);
+            String longitud = cursor.getString(5);
+            String categoria = cursor.getString(6);
+
+            Gastos gasto = new Gastos(id, nombreGasto, monto, fechaGasto, latitud, longitud, categoria);
+            listaGastos.add(gasto);
         }
 
-        cursor.close(); // Cerrar el cursor
-        db.close(); // Cerrar la conexión con la base de datos
-        return Listproductos;
+        cursor.close();
+        db.close();
+
+        return listaGastos;
     }
+
 
     public Gastos verdatos(int ID) {
 
