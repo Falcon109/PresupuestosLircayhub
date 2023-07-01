@@ -65,29 +65,29 @@ public class DBGastos extends DBHelper {
     }
 
 
-    public Gastos verdatos(int ID) {
-
-        DBHelper dbhelper = new DBHelper(context);
-        this.db = dbhelper.getWritableDatabase();
-
+    public Gastos obtenerGastoPorID(int ID) {
+        SQLiteDatabase db = this.getReadableDatabase();
         Gastos gastos = null;
-        Cursor cursorgastos;
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_GASTOS + " WHERE id = '" + ID + "' LIMIT 1", null);
 
-        cursorgastos = db.rawQuery("SELECT * FROM " + TABLE_GASTOS +" WHERE id = '" + ID + "' LIMIT 1", null);
+        if (cursor.moveToFirst()) {
+            int id = cursor.getInt(0);
+            String nombreGasto = cursor.getString(1);
+            int monto = cursor.getInt(2);
+            String fechaGasto = cursor.getString(3);
+            String latitud = cursor.getString(4);
+            String longitud = cursor.getString(5);
+            String categoria = cursor.getString(6);
 
-        while (cursorgastos.moveToNext()) { // Recorrer los resultados de la consulta
-            gastos = new Gastos();
-            gastos.setId(cursorgastos.getInt(0));
-            gastos.setNombre(cursorgastos.getString(1));
-            gastos.setMonto(Integer.parseInt(cursorgastos.getString(2)));
-            gastos.setFecha( cursorgastos.getString(3));
-            gastos.setLatitud( cursorgastos.getString(4));
-            gastos.setLongitud( cursorgastos.getString(5));
-            gastos.setCategoria( cursorgastos.getString(6));
+            gastos = new Gastos(id, nombreGasto, monto, fechaGasto, latitud, longitud, categoria);
         }
-        cursorgastos.close(); // Cerrar el cursor
+
+        cursor.close();
+        db.close();
+
         return gastos;
     }
+
 
     public boolean eliminarGastos(int ID) {
 
@@ -107,13 +107,13 @@ public class DBGastos extends DBHelper {
         return ready;
     }
 
-    public boolean editProducto(int ID, Editable nombregasto, Editable valor, Editable fechagastos, Editable latitud, Editable longitud, Editable categoria) {
+    public boolean editProducto(int ID, Editable nombregasto, Editable monto) {
 
         boolean ready = false;
         DBHelper dbhelper = new DBHelper(context);
         this.db = dbhelper.getWritableDatabase();
         try {
-            db.execSQL("UPDATE " + TABLE_GASTOS + " SET nombregasto = '" + nombregasto+ "', valor ='" + valor + "', fechagastos ='" + fechagastos + "', latitud ='" + latitud +"', longitud ='" + longitud + "', categoria ='" + categoria + "' WHERE id= '" + ID + "'");
+            db.execSQL("UPDATE " + TABLE_GASTOS + " SET nombregasto = '" + nombregasto+ "', monto ='" + monto + "'");
             ready = true;
         } catch (Exception ex) {
             ex.toString();

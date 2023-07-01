@@ -147,14 +147,14 @@
             </LinearLayout>
 
             <Spinner
-                android:id="@+id/spicategorias"
+                android:id="@+id/nomcategoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp" />
 
             <TextView
-                android:id="@+id/longitudeTextView"
+                android:id="@+id/numlongitud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
@@ -166,7 +166,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/latitudeTextView"
+                android:id="@+id/numlatitud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"

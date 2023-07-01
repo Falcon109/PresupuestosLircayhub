@@ -44,8 +44,8 @@ public class CrearGastos extends AppCompatActivity {
         Fecha=findViewById(R.id.numerofecha);
         Nombre=findViewById(R.id.nombregastos);
         Monto=findViewById(R.id.numeromonto);
-        Latitud = (TextView)findViewById(R.id.latitudeTextView);
-        Longitud = (TextView)findViewById(R.id.longitudeTextView);
+        Latitud = (TextView)findViewById(R.id.numlatitud);
+        Longitud = (TextView)findViewById(R.id.numlongitud);
         btnGuardar=findViewById(R.id.btnGuardar);
 
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
@@ -79,7 +79,7 @@ public class CrearGastos extends AppCompatActivity {
         // Register the listener with the Location Manager to receive location updates
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
 
-        spicategorias = (Spinner) findViewById(R.id.spicategorias);
+        spicategorias = (Spinner) findViewById(R.id.nomcategoria);
 
         ArrayAdapter<String> adaptspinner = new ArrayAdapter<>(this, R.layout.item_spiner , getResources().getStringArray(R.array.LisCategorias));
         spicategorias.setAdapter(adaptspinner);
