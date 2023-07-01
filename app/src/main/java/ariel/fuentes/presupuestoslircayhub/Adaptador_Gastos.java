@@ -100,4 +100,11 @@ public class Adaptador_Gastos extends RecyclerView.Adapter<Adaptador_Gastos.MyVi
             icongastos = itemView.findViewById(R.id.icongastos);
         }
     }
+
+    public void actualizarLista(ArrayList<Gastos> nuevaListaGastos) {
+        listaGastos.clear();
+        listaGastos.addAll(nuevaListaGastos);
+        notifyDataSetChanged();
+    }
+
 }

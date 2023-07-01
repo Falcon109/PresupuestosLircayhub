@@ -1,5 +1,6 @@
 package ariel.fuentes.presupuestoslircayhub.Menu_Fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -26,6 +27,11 @@ public class GastosFragment extends Fragment {
     private RecyclerView recyclerView;
     private Adaptador_Gastos adaptadorGastos;
 
+    private static final int REQUEST_CODE_CREAR_GASTOS = 1;
+    private static final int REQUEST_CODE_EDITAR_GASTOS = 2;
+    private static final int RESULT_CODE_MODIFICACION = 3; // Nuevo código de resultado
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gastos, container, false);
@@ -49,15 +55,28 @@ public class GastosFragment extends Fragment {
     }
 
     private ArrayList<Gastos> obtenerListaGastos() {
-        // Aquí obtén la lista de gastos desde la base de datos usando el objeto DBGastos
-        // Reemplaza este código con tu lógica de obtención de datos
         DBGastos dbGastos = new DBGastos(getActivity());
         return dbGastos.mostrardatos();
     }
 
     public void IrCrearGastos() {
         Intent intent = new Intent(getActivity(), CrearGastos.class);
-        startActivity(intent);
+        startActivityForResult(intent, REQUEST_CODE_CREAR_GASTOS);
+    }
+
+    private void actualizarListaGastos() {
+        ArrayList<Gastos> listaGastos = obtenerListaGastos();
+        adaptadorGastos.actualizarLista(listaGastos);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_CREAR_GASTOS && resultCode == Activity.RESULT_OK) {
+            actualizarListaGastos();
+        } else if (requestCode == REQUEST_CODE_EDITAR_GASTOS && resultCode == RESULT_CODE_MODIFICACION) {
+            actualizarListaGastos();
+        }
     }
 
 }

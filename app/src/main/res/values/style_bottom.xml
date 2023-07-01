@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Corte_bordes_BTN">
+    <style name="Corte_bordes_BTNDerecha">
         <item name="cornerSizeBottomLeft">65%</item>
         <item name="cornerSizeTopRight">0dp</item>
         <item name="cornerFamilyBottomLeft">cut</item>
         <item name="cornerFamilyTopRight">cut</item>
+    </style>
+
+    <style name="Corte_bordes_BTNIzquierda">
+        <item name="cornerSizeBottomRight">65%</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerFamilyTopLeft">cut</item>
     </style>
 </resources>

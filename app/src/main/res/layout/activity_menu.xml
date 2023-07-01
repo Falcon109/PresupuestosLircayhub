@@ -22,7 +22,7 @@
             android:layout_gravity="right|top"
             android:clickable="true"
             app:rippleColor="@color/white"
-            app:shapeAppearanceOverlay="@style/Corte_bordes_BTN"
+            app:shapeAppearanceOverlay="@style/Corte_bordes_BTNDerecha"
             app:srcCompat="@drawable/apart_configuracion" />
     </FrameLayout>
 

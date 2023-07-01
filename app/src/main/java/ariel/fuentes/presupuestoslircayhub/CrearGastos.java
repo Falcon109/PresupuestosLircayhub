@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -23,6 +24,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +38,9 @@ public class CrearGastos extends AppCompatActivity {
     private Button btnFecha, btnGuardar;
     private Spinner spicategorias;
 
+    FloatingActionButton Volver;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,9 +127,19 @@ public class CrearGastos extends AppCompatActivity {
                 if (checkInsertGasto) {
                     Toast.makeText(CrearGastos.this, "Gasto guardado", Toast.LENGTH_LONG).show();
                     limpiar();
+                    setResult(RESULT_OK); // Establecer el resultado como RESULT_OK
+                    finish(); // Finalizar la actividad actual
                 } else {
                     Toast.makeText(CrearGastos.this, "Error al guardar el gasto", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        Volver = findViewById(R.id.Volver);
+        Volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed(); // Regresar al fragmento anterior
             }
         });
 
@@ -146,14 +162,6 @@ public class CrearGastos extends AppCompatActivity {
             }
         },2023,0,1);
         date.show();
-    }
-
-    private List<String> obtenerDias() {
-        List<String> dias = new ArrayList<>();
-        for (int i = 1; i <= 31; i++) {
-            dias.add(String.valueOf(i));
-        }
-        return dias;
     }
 
     private void actualizarImagenCategoria(String categoria) {

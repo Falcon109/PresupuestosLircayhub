@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -27,11 +28,13 @@ public class DescripcionGastos extends AppCompatActivity {
     private int IDGastos;
     private SQLiteDatabase DB;
 
+    private Adaptador_Gastos adaptadorGastos;
+
     TextView Fecha, Categoria, Latitud, Longitud;
     EditText Nombre, Monto;
     Button Guardar;
     ImageView IconCategoria;
-    FloatingActionButton Editar, Eliminar;
+    FloatingActionButton Editar, Eliminar, Volver;
 
     int id = 0;
     Gastos gastos;
@@ -70,11 +73,8 @@ public class DescripcionGastos extends AppCompatActivity {
             id = (int) savedInstanceState.getSerializable("ID");
         }
 
-        // Obtiene el ID del gasto de los extras
-        id = getIntent().getIntExtra("ID", 0);
-
         DBGastos dbGastos = new DBGastos(this);
-        gastos = dbGastos.obtenerGastoPorID(id);
+        gastos = dbGastos.verdatos(id);
 
         if (gastos!= null){
             Nombre.setText(gastos.getNombre());
@@ -144,6 +144,7 @@ public class DescripcionGastos extends AppCompatActivity {
                         Guardar.setVisibility(View.INVISIBLE);
                         Editar.setVisibility(View.VISIBLE);
                         Eliminar.setVisibility(View.VISIBLE);
+
                     }else {
                         Toast.makeText(DescripcionGastos.this, "Error al modificar su Producto", Toast.LENGTH_SHORT).show();
                         Nombre.setEnabled(false);
@@ -170,11 +171,21 @@ public class DescripcionGastos extends AppCompatActivity {
             AlertDialog.Builder builder = new AlertDialog.Builder(DescripcionGastos.this);
             builder.setMessage("¿Desea eliminar este producto?").setPositiveButton("Si", (dialog, i) -> {
                 if(dbGastos.eliminarGastos(id)){
+                    setResult(Activity.RESULT_OK); // Envía el resultado al fragmento
                     finish();
                 }
             }).setNegativeButton("No", (dialog, i) -> {
 
             }).show();
         });
+
+        Volver = findViewById(R.id.Volver);
+        Volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed(); // Regresar al fragmento anterior
+            }
+        });
+
     }
 }
