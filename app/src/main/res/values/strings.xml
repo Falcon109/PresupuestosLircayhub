@@ -48,6 +48,22 @@
     <string name="PresupuestoTotal">Presupuesto Total</string>
     <string name="SuPresupuesto">Su presupuesto es:</string>
 
+    <string name="Dia_de_reinicio">Dia en que se reiniciara los gastos</string>
+    <string name="Dias_entity">Dias</string>
+    <string-array name="dias_entries">
+        <item>El dia 1 del mes</item>
+        <item>El dia 15 del mes</item>
+        <item>El dia 25 del mes</item>
+        <item>El dia ultimo dia del mes</item>
+    </string-array>
+    <string-array name="dias_values">
+        <item>El dia 1 del mes</item>
+        <item>El dia 15 del mes</item>
+        <item>El dia 25 del mes</item>
+        <item>El dia ultimo dia del mes</item>
+    </string-array>
+
+
     <string name="PresupuestoCategoria">Presupuesto por categoria</string>
     <string name="PresupuestoAriendo">Presupuesto para arriendo:</string>
     <string name="PresupuestoAlimentacion">Presupuesto para alimentación:</string>
@@ -59,6 +75,7 @@
     <string name="PresupuestoOtros">Presupuesto para otros:</string>
 
     <string-array name="LisCategorias">
+        <item>Seleciones una categoria</item>
         <item>Arriendo o Hipoteca</item>
         <item>Alimentación</item>
         <item>Transporte</item>
@@ -76,5 +93,6 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>

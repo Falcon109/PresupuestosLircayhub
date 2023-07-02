@@ -101,7 +101,8 @@
                 android:layout_marginBottom="11dp"
                 android:text="@string/Latitud"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/Longitud"
@@ -111,7 +112,8 @@
                 android:layout_marginBottom="11dp"
                 android:text="@string/Longitud"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="invisible" />
         </LinearLayout>
 
         <LinearLayout
@@ -144,6 +146,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
+                    android:backgroundTint="@color/white"
                     android:onClick="mostrarcalendario"
                     app:srcCompat="@drawable/btn_fecha" />
 
@@ -175,7 +178,8 @@
                 android:hint="@string/Num_Longitud"
                 android:onClick="mostrarcalendario"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/numlatitud"
@@ -186,7 +190,8 @@
                 android:contentDescription="latitud"
                 android:hint="@string/Num_Latitud"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="invisible" />
 
         </LinearLayout>
 

@@ -6,7 +6,17 @@
         <EditTextPreference
             app:key="presupuestoall"
             app:title="@string/SuPresupuesto"
+            app:defaultValue="0"
             app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:key="diasdereinicio"
+            app:title="@string/Dia_de_reinicio"
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="El dia 15 del mes"
+            app:entries="@array/dias_entries"
+            app:entryValues="@array/dias_values"
+            />
 
     </PreferenceCategory>
 
@@ -15,44 +25,50 @@
         <EditTextPreference
             android:key="PresuArriedo"
             android:title="@string/PresupuestoAriendo"
+            app:defaultValue="0"
             app:useSimpleSummaryProvider="true"/>
 
         <EditTextPreference
             android:key="PresuAlimentacion"
             android:title="@string/PresupuestoAlimentacion"
+            app:defaultValue="0"
             app:useSimpleSummaryProvider="true"/>
 
         <EditTextPreference
             android:key="PresuTransporte"
             android:title="@string/PresupuestoTransporte"
+            app:defaultValue="0"
             app:useSimpleSummaryProvider="true"/>
 
         <EditTextPreference
             android:key="PresuServBasicos"
             android:title="@string/PresupuestoServiciosBasicos"
+            app:defaultValue="0"
             app:useSimpleSummaryProvider="true"/>
 
         <EditTextPreference
             android:key="PresuEducacion"
             android:title="@string/PresupuestoEducacion"
+            app:defaultValue="0"
             app:useSimpleSummaryProvider="true"/>
 
         <EditTextPreference
             android:key="PresuDeudas"
             android:title="@string/PresupuestoDeudas"
+            app:defaultValue="0"
             app:useSimpleSummaryProvider="true"/>
 
         <EditTextPreference
             android:key="PresuAhorro"
             android:title="@string/PresupuestoAhorro"
+            app:defaultValue="0"
             app:useSimpleSummaryProvider="true"/>
 
         <EditTextPreference
             android:key="PresuOtros"
             android:title="@string/PresupuestoOtros"
+            app:defaultValue="0"
             app:useSimpleSummaryProvider="true"/>
 
     </PreferenceCategory>
-
-
 </PreferenceScreen>

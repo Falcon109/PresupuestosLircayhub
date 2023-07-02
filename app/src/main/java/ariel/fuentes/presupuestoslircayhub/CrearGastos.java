@@ -26,8 +26,11 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import ariel.fuentes.presupuestoslircayhub.DB.DBGastos;
 
@@ -37,7 +40,7 @@ public class CrearGastos extends AppCompatActivity {
     private EditText Nombre, Monto;
     private Button btnFecha, btnGuardar;
     private Spinner spicategorias;
-
+    private Calendar calendar;
     FloatingActionButton Volver;
 
     @SuppressLint("MissingInflatedId")
@@ -53,6 +56,11 @@ public class CrearGastos extends AppCompatActivity {
         Latitud = (TextView)findViewById(R.id.numlatitud);
         Longitud = (TextView)findViewById(R.id.numlongitud);
         btnGuardar=findViewById(R.id.btnGuardar);
+
+        calendar = Calendar.getInstance();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        Fecha.setText(dateFormat.format(calendar.getTime()));
 
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
 
@@ -111,16 +119,33 @@ public class CrearGastos extends AppCompatActivity {
             }
         });
 
+
+
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String nombreGasto = Nombre.getText().toString();
                 String fechaGasto = Fecha.getText().toString();
-                int monto = Integer.valueOf(Monto.getText().toString());
+                String montoText = Monto.getText().toString();
                 String latitud = Latitud.getText().toString();
                 String longitud = Longitud.getText().toString();
                 String categoria = spicategorias.getSelectedItem().toString();
+
+                // Validate fields
+                if (nombreGasto.isEmpty() || montoText.isEmpty() || categoria.equals("Seleciones una categoria")) {
+                    Toast.makeText(CrearGastos.this, "Por favor, complete todos los campos", Toast.LENGTH_LONG).show();
+                    return; // Stop the process if any field is empty or category is not selected
+                }
+
+                // Validate montoText is a number
+                if (!montoText.matches("\\d+")) {
+                    Toast.makeText(CrearGastos.this, "Por favor, ingrese un valor numérico para el monto", Toast.LENGTH_LONG).show();
+                    return; // Stop the process if montoText is not a number
+                }
+
+                // Convert monto to integer
+                int monto = Integer.parseInt(montoText);
 
                 DBGastos dbGastos = new DBGastos(getApplicationContext());
                 boolean checkInsertGasto = dbGastos.inserGastos(nombreGasto, monto, fechaGasto, latitud, longitud, categoria);
@@ -134,6 +159,7 @@ public class CrearGastos extends AppCompatActivity {
                 }
             }
         });
+
 
         Volver = findViewById(R.id.Volver);
         Volver.setOnClickListener(new View.OnClickListener() {
@@ -154,20 +180,35 @@ public class CrearGastos extends AppCompatActivity {
     }
 
     //metodo para la extraccion de fecha
-    public void mostrarcalendario(View view){
-        DatePickerDialog date = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                Fecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
-            }
-        },2023,0,1);
-        date.show();
+    public void mostrarcalendario(View view) {
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        calendar.set(Calendar.YEAR, year);
+                        calendar.set(Calendar.MONTH, monthOfYear);
+                        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                        Fecha.setText(dateFormat.format(calendar.getTime()));
+                    }
+                }, year, month, day);
+
+        datePickerDialog.show();
     }
+
 
     private void actualizarImagenCategoria(String categoria) {
         ImageView imageView = findViewById(R.id.imagengastos);
 
         switch (categoria) {
+            case "Seleciones una categoria":
+                imageView.setImageResource(R.drawable.cat_ninguna);
+                break;
             case "Arriendo o Hipoteca":
                 imageView.setImageResource(R.drawable.cat_arriendo);
                 break;
@@ -193,7 +234,7 @@ public class CrearGastos extends AppCompatActivity {
                 imageView.setImageResource(R.drawable.cat_otros);
                 break;
             default:
-                imageView.setImageResource(R.drawable.cat_otros);
+                imageView.setImageResource(R.drawable.cat_ninguna);
                 break;
         }
     }

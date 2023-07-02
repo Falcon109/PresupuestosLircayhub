@@ -1,66 +1,105 @@
 package ariel.fuentes.presupuestoslircayhub.Menu_Fragment;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import ariel.fuentes.presupuestoslircayhub.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MapaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class MapaFragment extends Fragment {
+public class MapaFragment extends Fragment implements OnMapReadyCallback, LocationListener {
+    private GoogleMap mMap;
+    private float zoomLevel = 15.0f;
+    private LocationManager locationManager;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_mapa, container, false);
+        FrameLayout mapContainer = rootView.findViewById(R.id.map_container);
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+        SupportMapFragment mapFragment = new SupportMapFragment();
+        getChildFragmentManager().beginTransaction()
+                .replace(R.id.map_container, mapFragment)
+                .commit();
 
-    public MapaFragment() {
-        // Required empty public constructor
-    }
+        mapFragment.getMapAsync(this);
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ThirdFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MapaFragment newInstance(String param1, String param2) {
-        MapaFragment fragment = new MapaFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        return rootView;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        requestLocationUpdates();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        removeLocationUpdates();
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
+        mMap.addMarker(new MarkerOptions().position(currentLocation).title("Current Location"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        // Implementa la lógica necesaria cuando el estado del proveedor de ubicación cambia
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        // Implementa la lógica necesaria cuando el proveedor de ubicación se habilita
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        // Implementa la lógica necesaria cuando el proveedor de ubicación se deshabilita
+    }
+
+    private void requestLocationUpdates() {
+        Context context = getContext();
+        LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        } else {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third, container, false);
+    private void removeLocationUpdates() {
+        LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        locationManager.removeUpdates(this);
     }
 }
