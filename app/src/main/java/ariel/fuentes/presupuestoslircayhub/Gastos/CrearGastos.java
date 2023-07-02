@@ -1,4 +1,4 @@
-package ariel.fuentes.presupuestoslircayhub;
+package ariel.fuentes.presupuestoslircayhub.Gastos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -27,12 +27,11 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Locale;
 
 import ariel.fuentes.presupuestoslircayhub.DB.DBGastos;
+import ariel.fuentes.presupuestoslircayhub.R;
 
 public class CrearGastos extends AppCompatActivity {
 

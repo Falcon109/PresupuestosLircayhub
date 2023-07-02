@@ -1,4 +1,4 @@
-package ariel.fuentes.presupuestoslircayhub;
+package ariel.fuentes.presupuestoslircayhub.Gastos;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import ariel.fuentes.presupuestoslircayhub.Entidades.Gastos;
+import ariel.fuentes.presupuestoslircayhub.R;
 
 public class Adaptador_Gastos extends RecyclerView.Adapter<Adaptador_Gastos.MyViewHolder> {
 

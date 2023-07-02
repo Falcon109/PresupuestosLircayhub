@@ -1,6 +1,5 @@
 package ariel.fuentes.presupuestoslircayhub.DB;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -108,7 +107,7 @@ public class DBGastos extends DBHelper {
         return ready;
     }
 
-    public boolean editProducto(int ID, Editable nombregasto, Editable monto) {
+    public boolean editarGastos(int ID, Editable nombregasto, Editable monto) {
 
         boolean ready = false;
         DBHelper dbhelper = new DBHelper(context);

@@ -1,4 +1,4 @@
-package ariel.fuentes.presupuestoslircayhub;
+package ariel.fuentes.presupuestoslircayhub.Menu_Fragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,10 +13,8 @@ import android.view.View;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.GastosFragment;
-import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.IndicadoresFragment;
-import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.InicioFragment;
-import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.MapaFragment;
+import ariel.fuentes.presupuestoslircayhub.R;
+import ariel.fuentes.presupuestoslircayhub.SettingsActivity;
 
 public class Menu extends AppCompatActivity {
     InicioFragment MenuInicio = new InicioFragment();

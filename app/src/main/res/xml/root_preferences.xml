@@ -4,7 +4,7 @@
     <PreferenceCategory app:title="@string/PresupuestoTotal">
 
         <EditTextPreference
-            app:key="presupuestoall"
+            app:key="presupuestoTotal"
             app:title="@string/SuPresupuesto"
             app:defaultValue="0"
             app:useSimpleSummaryProvider="true" />

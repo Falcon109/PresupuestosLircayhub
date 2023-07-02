@@ -1,11 +1,10 @@
-package ariel.fuentes.presupuestoslircayhub;
+package ariel.fuentes.presupuestoslircayhub.Gastos;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,7 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import ariel.fuentes.presupuestoslircayhub.DB.DBGastos;
 import ariel.fuentes.presupuestoslircayhub.DB.DBHelper;
 import ariel.fuentes.presupuestoslircayhub.Entidades.Gastos;
-import ariel.fuentes.presupuestoslircayhub.Menu_Fragment.GastosFragment;
+import ariel.fuentes.presupuestoslircayhub.R;
 
 public class DescripcionGastos extends AppCompatActivity {
 
@@ -133,7 +132,7 @@ public class DescripcionGastos extends AppCompatActivity {
                     Editable nom = (Nombre.getText());
                     Editable mon = (Monto.getText());
 
-                    ready[0] = dbGastos.editProducto(id,nom,mon);
+                    ready[0] = dbGastos.editarGastos(id,nom,mon);
 
                     Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
 

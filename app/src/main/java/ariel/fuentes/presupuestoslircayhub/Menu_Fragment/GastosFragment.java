@@ -16,8 +16,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-import ariel.fuentes.presupuestoslircayhub.Adaptador_Gastos;
-import ariel.fuentes.presupuestoslircayhub.CrearGastos;
+import ariel.fuentes.presupuestoslircayhub.Gastos.Adaptador_Gastos;
+import ariel.fuentes.presupuestoslircayhub.Gastos.CrearGastos;
 import ariel.fuentes.presupuestoslircayhub.DB.DBGastos;
 import ariel.fuentes.presupuestoslircayhub.Entidades.Gastos;
 import ariel.fuentes.presupuestoslircayhub.R;
