@@ -22,6 +22,33 @@ public class Presupuestos {
         Fecha = fecha;
     }
 
+    public void actualizarCategoriaGasto(String categoria, int monto) {
+        switch (categoria) {
+            case "Arriendo o Hipoteca":
+                Arriendo += monto;
+                break;
+            case "Alimentación":
+                Alimentacion += monto;
+                break;
+            case "Transporte":
+                Transporte += monto;
+                break;
+            case "Servicios básicos":
+                SerBasicos += monto;
+                break;
+            case "Deudas":
+                Deudas += monto;
+                break;
+            case "Ahorros e Inversiones":
+                Ahorro += monto;
+                break;
+            default:
+                // No hacer nada si la categoría no corresponde a ninguna variable
+                break;
+        }
+    }
+
+
     public int getTotal() {
         return Total;
     }

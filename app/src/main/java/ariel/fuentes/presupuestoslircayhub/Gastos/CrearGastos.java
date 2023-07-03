@@ -143,6 +143,7 @@ public class CrearGastos extends AppCompatActivity {
                     return; // Stop the process if montoText is not a number
                 }
 
+
                 // Convert monto to integer
                 int monto = Integer.parseInt(montoText);
 

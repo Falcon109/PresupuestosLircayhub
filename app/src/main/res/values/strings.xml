@@ -65,7 +65,7 @@
     </string-array>
 
     <string name="TituloResumen">Resumen</string>
-    <string name="PresupuestoGastos">Presupuestos / Gastos</string>
+    <string name="PresupuestoGastos">Presupuestos</string>
     <string name="PresupuestoTotal2">Presupuesto Total: </string>
 
     <string name="PresupuestoCategoria">Presupuesto por categoria</string>

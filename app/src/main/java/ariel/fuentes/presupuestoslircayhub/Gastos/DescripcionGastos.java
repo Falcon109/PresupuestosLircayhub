@@ -38,7 +38,7 @@ public class DescripcionGastos extends AppCompatActivity {
     int id = 0;
     Gastos gastos;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "ResourceAsColor"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

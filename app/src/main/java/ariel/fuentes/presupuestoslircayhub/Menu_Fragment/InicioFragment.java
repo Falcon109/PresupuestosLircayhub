@@ -58,14 +58,14 @@ public class InicioFragment extends Fragment {
 
 
         textViewPresupuestoTotal.setText("Presupuesto Total: "+ presupuestoTotal);
-        textViewResumenArriendo.setText(resumenArriendo + " / ");
-        textViewResumenAlimentacion.setText(resumenAlimentacion + " / ");
-        textViewResumenTransporte.setText(resumenTransporte + " / ");
-        textViewResumenSerBasicos.setText(resumenSerBasico + " / ");
-        textViewResumenEducacion.setText(resumenEducacion + " / ");
-        textViewResumenDeudas.setText(resumenDeudas + " / ");
-        textViewResumenAhorros.setText(resumenAhorro + " / ");
-        textViewResumenOtros.setText(resumenOtros + " / ");
+        textViewResumenArriendo.setText(resumenArriendo);
+        textViewResumenAlimentacion.setText(resumenAlimentacion);
+        textViewResumenTransporte.setText(resumenTransporte);
+        textViewResumenSerBasicos.setText(resumenSerBasico);
+        textViewResumenEducacion.setText(resumenEducacion);
+        textViewResumenDeudas.setText(resumenDeudas);
+        textViewResumenAhorros.setText(resumenAhorro);
+        textViewResumenOtros.setText(resumenOtros);
 
         return view;
     }
