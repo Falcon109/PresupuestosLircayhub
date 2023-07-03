@@ -50,6 +50,7 @@
 
     <string name="Dia_de_reinicio">Dia en que se reiniciara los gastos</string>
     <string name="Dias_entity">Dias</string>
+
     <string-array name="dias_entries">
         <item>El dia 1 del mes</item>
         <item>El dia 15 del mes</item>
@@ -63,6 +64,9 @@
         <item>El dia ultimo dia del mes</item>
     </string-array>
 
+    <string name="TituloResumen">Resumen</string>
+    <string name="PresupuestoGastos">Presupuestos / Gastos</string>
+    <string name="PresupuestoTotal2">Presupuesto Total: </string>
 
     <string name="PresupuestoCategoria">Presupuesto por categoria</string>
     <string name="PresupuestoAriendo">Presupuesto para arriendo:</string>

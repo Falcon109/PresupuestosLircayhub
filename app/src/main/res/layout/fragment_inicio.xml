@@ -16,20 +16,29 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/Titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="Resumen"
+            android:layout_marginBottom="15dp"
+            android:text="@string/TituloResumen"
             android:textAlignment="center"
             android:textSize="34sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/PresupuestoTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Presupuesto / Gastos"
+            android:text="@string/PresupuestoTotal2"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Titulo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/PresupuestoGastos"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -45,49 +54,49 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/ico_Arriendo"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/cat_arriendo" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/ico_Alimentacion"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/cat_alimentacion" />
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/ico_Transporte"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/cat_transporte" />
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/ico_SerBasicos"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/cat_servicios" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/ico_Educacion"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/cat_educacion" />
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/ico_Deudas"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/cat_deudas" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/ico_Ahorros"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/cat_ahorros" />
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/ico_Otros"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/cat_otros" />
@@ -100,97 +109,97 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/ResumenArriendo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
                     android:layout_marginBottom="18dp"
                     android:gravity="clip_vertical|center_horizontal"
-                    android:text="Presupuesto/Gasto"
+                    android:text="@string/PresupuestoGastos"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/ResumenAlimentacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="18dp"
                     android:gravity="clip_vertical|center_horizontal"
-                    android:text="Presupuesto/Gasto"
+                    android:text="@string/PresupuestoGastos"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/ResumenTransporte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="18dp"
                     android:gravity="clip_vertical|center_horizontal"
-                    android:text="Presupuesto/Gasto"
+                    android:text="@string/PresupuestoGastos"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView10"
+                    android:id="@+id/ResumenSerBasicos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="18dp"
                     android:gravity="clip_vertical|center_horizontal"
-                    android:text="Presupuesto/Gasto"
+                    android:text="@string/PresupuestoGastos"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/ResumenEducacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="18dp"
                     android:gravity="clip_vertical|center_horizontal"
-                    android:text="Presupuesto/Gasto"
+                    android:text="@string/PresupuestoGastos"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/ResumenDeudas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="18dp"
                     android:gravity="clip_vertical|center_horizontal"
-                    android:text="Presupuesto/Gasto"
+                    android:text="@string/PresupuestoGastos"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/ResumenAhorros"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="18dp"
                     android:gravity="clip_vertical|center_horizontal"
-                    android:text="Presupuesto/Gasto"
+                    android:text="@string/PresupuestoGastos"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/ResumenOtros"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="18dp"
                     android:gravity="clip_vertical|center_horizontal"
-                    android:text="Presupuesto/Gasto"
+                    android:text="@string/PresupuestoGastos"
                     android:textAlignment="center"
                     android:textSize="20sp"
                     android:textStyle="bold" />
